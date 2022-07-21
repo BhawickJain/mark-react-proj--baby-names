@@ -1,0 +1,18 @@
+* {
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  border: 1px black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: large;
+}
+
+input {
+  border: black 3px solid;
+  border-radius: 10px;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+}
