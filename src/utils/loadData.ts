@@ -36,7 +36,13 @@ export const loadData = (): BabyName[] => {
       id: 5,
       name: "nehi",
       sex: "f",
-    } ];
+    },
+    {
+      id: 6,
+      name: "neha",
+      sex: "f",
+    },
+  ];
 };
 
 export default loadData;

@@ -8,6 +8,7 @@ interface BabyNamesState {
   data: BabyName[];
   picks: BabyName[];
   filter: string;
+  sexFilter: "m" | "f" | "";
   display: BabyName[];
 }
 
@@ -17,6 +18,7 @@ const initialiseBabyNamesState = (): BabyNamesState => {
     data: babyData,
     picks: [],
     filter: "",
+    sexFilter: "",
     display: babyData,
   };
 };
@@ -26,7 +28,7 @@ const Main = (): JSX.Element => {
   console.log(state);
 
   const handleChange = (search: string): void => {
-    const displaySearchResult: BabyName[] = searchBabyName(search, state.data);
+    const displaySearchResult: BabyName[] = searchBabyName(search, state.data, state.sexFilter);
     setState({
       ...state,
       filter: search,
@@ -51,12 +53,25 @@ const Main = (): JSX.Element => {
     });
   };
 
+  const handleSetSex = (e: React.MouseEvent, sex: "m" | "f" | ""): void => {
+    const displaySearchResult: BabyName[] = searchBabyName(state.filter, state.data, sex);
+    setState({
+      ...state,
+      sexFilter: sex,
+      display: displaySearchResult
+    });
+  };
   return (
     <>
-      <input
-        value={state.filter}
-        onChange={(e) => handleChange(e.target.value)}
-      />
+      <div>
+        <input
+          value={state.filter}
+          onChange={(e) => handleChange(e.target.value)}
+        />
+        <button onClick={(e) => handleSetSex(e, "")}>any</button>
+        <button onClick={(e) => handleSetSex(e, "f")}>girl</button>
+        <button onClick={(e) => handleSetSex(e, "m")}>boy</button>
+      </div>
       <div>
         <h3>Your Favourites!</h3>
         <ul>

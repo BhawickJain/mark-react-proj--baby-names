@@ -1,5 +1,5 @@
-const PageHeader = (): JSX.Element => {
-  return <h1>Baby Names</h1>;
+const PageFooter = (): JSX.Element => {
+  return <small>Copyright 2022</small>;
 };
 
-export default PageHeader;
+export default PageFooter;
