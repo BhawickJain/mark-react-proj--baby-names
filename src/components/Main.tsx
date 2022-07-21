@@ -28,7 +28,11 @@ const Main = (): JSX.Element => {
   console.log(state);
 
   const handleChange = (search: string): void => {
-    const displaySearchResult: BabyName[] = searchBabyName(search, state.data, state.sexFilter);
+    const displaySearchResult: BabyName[] = searchBabyName(
+      search,
+      state.data,
+      state.sexFilter
+    );
     setState({
       ...state,
       filter: search,
@@ -54,11 +58,15 @@ const Main = (): JSX.Element => {
   };
 
   const handleSetSex = (e: React.MouseEvent, sex: "m" | "f" | ""): void => {
-    const displaySearchResult: BabyName[] = searchBabyName(state.filter, state.data, sex);
+    const displaySearchResult: BabyName[] = searchBabyName(
+      state.filter,
+      state.data,
+      sex
+    );
     setState({
       ...state,
       sexFilter: sex,
-      display: displaySearchResult
+      display: displaySearchResult,
     });
   };
   return (
