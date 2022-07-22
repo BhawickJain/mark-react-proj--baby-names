@@ -5,8 +5,6 @@ import BabyDataDisplay from "./BabyDataDisplay";
 import PickedNameDisplay from "./PickedNamesDisplay";
 import SearchFilterBar from "./SearchFilterBar";
 
-
-
 const initialiseBabyNamesState = (): BabyNamesState => {
   const babyData = loadData();
   return {
@@ -23,9 +21,9 @@ const Main = (): JSX.Element => {
 
   return (
     <>
-<SearchFilterBar setState={setState} state={state} />
-<PickedNameDisplay setState={setState} state={state}/>
-    <BabyDataDisplay setState={setState} state={state} />
+      <SearchFilterBar setState={setState} state={state} />
+      <PickedNameDisplay setState={setState} state={state} />
+      <BabyDataDisplay setState={setState} state={state} />
     </>
   );
 };

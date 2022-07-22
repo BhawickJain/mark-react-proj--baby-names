@@ -1,14 +1,13 @@
-import { getDefaultFormatCodeSettings } from "typescript"
-import BabyName from "../types/BabyNames"
-import BabyNamesState from "../types/BabyNamesState"
-import searchBabyName from "../utils/searchBabyName"
+import BabyName from "../types/BabyNames";
+import BabyNamesState from "../types/BabyNamesState";
+import searchBabyName from "../utils/searchBabyName";
 
 interface Props {
-    state: BabyNamesState
-    setState: React.Dispatch<React.SetStateAction<BabyNamesState>>
+  state: BabyNamesState;
+  setState: React.Dispatch<React.SetStateAction<BabyNamesState>>;
 }
 
-const SearchFilterBar = ({state, setState}: Props): JSX.Element => {
+const SearchFilterBar = ({ state, setState }: Props): JSX.Element => {
 
   const handleChange = (search: string): void => {
     const displaySearchResult: BabyName[] = searchBabyName(
@@ -23,7 +22,7 @@ const SearchFilterBar = ({state, setState}: Props): JSX.Element => {
     });
   };
 
-  const handleSetSex = (e: React.MouseEvent, sex: "m" | "f" | ""): void => {
+  const handleSetSex = (sex: "m" | "f" | ""): void => {
     const displaySearchResult: BabyName[] = searchBabyName(
       state.filter,
       state.data,
@@ -36,17 +35,17 @@ const SearchFilterBar = ({state, setState}: Props): JSX.Element => {
     });
   };
 
-   return (
-      <div className="search-filter-bar">
-        <input
-          value={state.filter}
-          onChange={(e) => handleChange(e.target.value)}
-        />
-        <button onClick={(e) => handleSetSex(e, "")}>any</button>
-        <button onClick={(e) => handleSetSex(e, "f")}>girl</button>
-        <button onClick={(e) => handleSetSex(e, "m")}>boy</button>
-      </div>
-   ) 
-}
+  return (
+    <div className="search-filter-bar">
+      <input
+        value={state.filter}
+        onChange={(e) => handleChange(e.target.value)}
+      />
+      <button className="baby-button" onClick={() => handleSetSex("")}>any</button>
+      <button className="baby-button girl" onClick={() => handleSetSex("f")}>girl</button>
+      <button className="baby-button boy" onClick={() => handleSetSex("m")}>boy</button>
+    </div>
+  );
+};
 
-export default SearchFilterBar
+export default SearchFilterBar;
