@@ -13,7 +13,7 @@
     "...": "yarn format; yarn lint; yarn test",
     "format": "prettier --write src",
     "format:check": "prettier --check src",
-    "lint": "eslint src/**",
+    "lint": "eslint src/** --no-error-on-unmatched-pattern",
     "type-check": "tsc --noEmit",
     "test": "react-scripts test --watchAll=false",
     "test:watch": "react-scripts test",
