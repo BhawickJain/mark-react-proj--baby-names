@@ -42,7 +42,11 @@ export const loadData = (): BabyName[] => {
       name: "neha",
       sex: "f",
     },
-  ];
+{
+      id: 7,
+      name: "emmanuel",
+      sex: "m",
+    }  ];
 };
 
 export default loadData;
