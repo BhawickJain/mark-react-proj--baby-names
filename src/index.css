@@ -15,4 +15,6 @@ input {
 ul {
   display: flex;
   list-style-type: none;
+  flex-direction:row;
+  flex-wrap: wrap;
 }
