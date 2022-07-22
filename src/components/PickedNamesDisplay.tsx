@@ -6,7 +6,6 @@ interface Props {
   setState: React.Dispatch<React.SetStateAction<BabyNamesState>>;
 }
 const PickedNamesDisplay = ({ state, setState }: Props): JSX.Element => {
-
   const handleRemoveFromPick = (id: number): void => {
     const filteredPicks = state.picks.filter((b) => b.id !== id);
     setState({
@@ -22,7 +21,10 @@ const PickedNamesDisplay = ({ state, setState }: Props): JSX.Element => {
         {state.picks.map((b) => (
           <li key={b.id}>
             {" "}
-            <GenderAssignedBabyButton baby={b} handleClick={() => handleRemoveFromPick(b.id)} />
+            <GenderAssignedBabyButton
+              baby={b}
+              handleClick={() => handleRemoveFromPick(b.id)}
+            />
           </li>
         ))}
       </ul>

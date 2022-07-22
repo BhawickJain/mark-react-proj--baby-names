@@ -8,7 +8,6 @@ interface Props {
 }
 
 const SearchFilterBar = ({ state, setState }: Props): JSX.Element => {
-
   const handleChange = (search: string): void => {
     const displaySearchResult: BabyName[] = searchBabyName(
       search,
@@ -41,9 +40,15 @@ const SearchFilterBar = ({ state, setState }: Props): JSX.Element => {
         value={state.filter}
         onChange={(e) => handleChange(e.target.value)}
       />
-      <button className="baby-button" onClick={() => handleSetSex("")}>any</button>
-      <button className="baby-button girl" onClick={() => handleSetSex("f")}>girl</button>
-      <button className="baby-button boy" onClick={() => handleSetSex("m")}>boy</button>
+      <button className="baby-button" onClick={() => handleSetSex("")}>
+        any
+      </button>
+      <button className="baby-button girl" onClick={() => handleSetSex("f")}>
+        girl
+      </button>
+      <button className="baby-button boy" onClick={() => handleSetSex("m")}>
+        boy
+      </button>
     </div>
   );
 };

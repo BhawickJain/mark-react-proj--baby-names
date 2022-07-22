@@ -8,4 +8,4 @@ interface BabyNamesState {
   display: BabyName[];
 }
 
-export default BabyNamesState
+export default BabyNamesState;

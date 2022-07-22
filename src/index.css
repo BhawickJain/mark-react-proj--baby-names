@@ -6,9 +6,10 @@
   font-size: large;
 }
 
-.search-filter-bar, .picked-names-display ul {
-display: inline-flex;
-gap: 15px;
+.search-filter-bar,
+.picked-names-display ul {
+  display: inline-flex;
+  gap: 15px;
 }
 
 input {
@@ -18,7 +19,7 @@ input {
 
 .girl {
   background: lightblue;
-  color: darkslategrey
+  color: darkslategrey;
 }
 
 .boy {
@@ -27,13 +28,14 @@ input {
 }
 
 .baby-button {
-  border: 2px solid grey;
+  border: none;
   border-radius: 10px;
   font-weight: bold;
 }
 
 ul {
-  display: flex;
+  display: inline-flex;
+  gap: 1px;
   list-style-type: none;
   flex-direction: row;
   flex-wrap: wrap;

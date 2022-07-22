@@ -23,7 +23,10 @@ const BabyDataDisplay = ({ state, setState }: Props): JSX.Element => {
       <ul>
         {state.display.map((b) => (
           <li key={b.id}>
-            <GenderAssignedBabyButton baby={b} handleClick={() => handleAddToPick(b.id)}/>
+            <GenderAssignedBabyButton
+              baby={b}
+              handleClick={() => handleAddToPick(b.id)}
+            />
           </li>
         ))}
       </ul>
