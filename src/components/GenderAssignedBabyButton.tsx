@@ -9,22 +9,12 @@ interface Prop {
 const GenderAssignedBabyButton = ({ baby, handleClick }: Prop): JSX.Element => {
   return (
     <>
-      {baby.sex === "m" && (
-        <BabyButton
-          className={"boy"}
-          keyValue={baby.id}
-          onClick={() => handleClick()}
-          label={baby.name}
-        />
-      )}
-      {baby.sex === "f" && (
-        <BabyButton
-          className={"girl"}
-          keyValue={baby.id}
-          onClick={() => handleClick()}
-          label={baby.name}
-        />
-      )}
+      <BabyButton
+        className={baby.sex === "m" ? "boy" : "girl"}
+        keyValue={baby.id}
+        onClick={() => handleClick()}
+        label={baby.name}
+      />
     </>
   );
 };
