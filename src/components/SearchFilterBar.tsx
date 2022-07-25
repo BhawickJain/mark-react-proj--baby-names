@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import BabyName from "../types/BabyNames";
 import BabyNamesState from "../types/BabyNamesState";
 import searchBabyName from "../utils/searchBabyName";
@@ -8,29 +9,30 @@ interface Props {
 }
 
 const SearchFilterBar = ({ state, setState }: Props): JSX.Element => {
-  const handleChange = (search: string): void => {
+  useEffect(() => {
     const displaySearchResult: BabyName[] = searchBabyName(
-      search,
+      state.filter,
       state.data,
       state.sexFilter
     );
+    console.log("useEffect used to update search results")
+    setState({
+      ...state,
+      display: [...displaySearchResult],
+    });
+  }, [state.data, state.sexFilter, state.filter]);
+
+  const handleChange = (search: string): void => {
     setState({
       ...state,
       filter: search,
-      display: [...displaySearchResult],
     });
   };
 
   const handleSetSex = (sex: "m" | "f" | ""): void => {
-    const displaySearchResult: BabyName[] = searchBabyName(
-      state.filter,
-      state.data,
-      sex
-    );
     setState({
       ...state,
       sexFilter: sex,
-      display: displaySearchResult,
     });
   };
 
