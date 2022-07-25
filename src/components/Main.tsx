@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import BabyNamesState from "../types/BabyNamesState";
 import loadData from "../utils/loadData";
+import sortAlphabetically from "../utils/sortInAlphabetical";
 import BabyDataDisplay from "./BabyDataDisplay";
 import PickedNameDisplay from "./PickedNamesDisplay";
 import SearchFilterBar from "./SearchFilterBar";
@@ -8,7 +9,7 @@ import SearchFilterBar from "./SearchFilterBar";
 const initialiseBabyNamesState = (): BabyNamesState => {
   const babyData = loadData();
   return {
-    data: babyData,
+    data: sortAlphabetically(babyData),
     picks: [],
     filter: "",
     sexFilter: "",
