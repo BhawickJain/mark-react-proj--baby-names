@@ -45,13 +45,13 @@ const SearchFilterBar = ({ state, setState }: Props): JSX.Element => {
         value={state.filter}
         onChange={(e) => handleChange(e.target.value)}
       />
-      <button className="baby-button" onClick={() => handleSetSex("")}>
+      <button className={`baby-button ${state.sexFilter === "" ? "selected" : ""}`} onClick={() => handleSetSex("")}>
         any
       </button>
-      <button className="baby-button girl" onClick={() => handleSetSex("f")}>
+      <button className={`baby-button girl ${state.sexFilter === "f" ? "selected" : ""}`} onClick={() => handleSetSex("f")}>
         girl
       </button>
-      <button className="baby-button boy" onClick={() => handleSetSex("m")}>
+      <button className={`baby-button boy ${state.sexFilter === "m" ? "selected" : ""}`} onClick={() => handleSetSex("m")}>
         boy
       </button>
     </div>
