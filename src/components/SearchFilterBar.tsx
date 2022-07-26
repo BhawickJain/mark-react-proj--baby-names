@@ -10,17 +10,20 @@ interface Props {
 
 const SearchFilterBar = ({ state, setState }: Props): JSX.Element => {
   useEffect(() => {
-    const displaySearchResult: BabyName[] = searchBabyName(
-      state.filter,
-      state.data,
-      state.sexFilter
-    );
-    console.log("useEffect used to update search results")
-    setState({
-      ...state,
-      display: [...displaySearchResult],
-    });
-  }, [state.data, state.sexFilter, state.filter]);
+    const computeSearchResults = (prev: BabyNamesState) => {
+      const displaySearchResult: BabyName[] = searchBabyName(
+        prev.filter,
+        prev.data,
+        prev.sexFilter
+      );
+      console.log("useEffect used to update search results");
+      const newState = { ...prev, display: [...displaySearchResult] };
+
+      return newState;
+    };
+
+    setState(computeSearchResults);
+  }, [state.data, state.sexFilter, state.filter, setState]);
 
   const handleChange = (search: string): void => {
     setState({
