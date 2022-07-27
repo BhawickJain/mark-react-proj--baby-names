@@ -1,5 +1,5 @@
 import BabyName from "../types/BabyNames";
-import validateData from "./validateDate";
+import validateData from "./validateData";
 
 test("dummy test", () => {
   const jsonData = [
