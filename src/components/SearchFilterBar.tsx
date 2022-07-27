@@ -10,25 +10,13 @@ interface Props {
 }
 
 const SearchFilterBar = ({ state, setState }: Props): JSX.Element => {
-  useEffect(() => {
-    const computeSearchResults = (prev: BabyNamesState) => {
-      const displaySearchResult: BabyName[] = searchBabyName(
-        prev.filter,
-        prev.data,
-        prev.sexFilter
-      );
-      console.log("useEffect used to update search results");
-      const newState = { ...prev, display: [...displaySearchResult] };
-
-      return newState;
-    };
-
-    setState(computeSearchResults);
-  }, [state.data, state.sexFilter, state.filter, setState]);
+  const recomputeDisplaySearchResults = (state: BabyNamesState) =>
+    searchBabyName(state.filter, state.data, state.sexFilter);
 
   const handleChange = (search: string): void => {
     setState({
       ...state,
+      display: recomputeDisplaySearchResults({ ...state, filter: search }),
       filter: search,
     });
   };
@@ -36,6 +24,7 @@ const SearchFilterBar = ({ state, setState }: Props): JSX.Element => {
   const handleSetSex = (sex: "m" | "f" | ""): void => {
     setState({
       ...state,
+      display: recomputeDisplaySearchResults({ ...state, sexFilter: sex }),
       sexFilter: sex,
     });
   };
