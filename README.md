@@ -1,10 +1,11 @@
-# Simplified CRA starter
+#  Baby Name
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
+![example workflow](https://github.com/BhawickJain/mark-react-proj--baby-names/actions/workflows/ci.yaml/badge.svg)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5dddaa04-09f9-4dab-adec-27f9e6d4bf7b/deploy-status)](https://app.netlify.com/sites/baby-names-bhawick/deploys)
 
-> This is part of Academy's technical curriculum for **The Mark**. All parts of that curriculum, including this project, are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>
+[Link to Project](https://baby-names-bhawick.netlify.app/)
 
+A demonstration of reading static data and displaying it using a shared state. Employs test, types and a rough sketch of how data validation and type narrowing may work.
 
 ## TODO
-- [ ] setup `eslintrc` and `prettierrc` files
-- [ ] give place holder message for favourites seciton when empty
+- [x] setup `eslintrc` and `prettierrc` files
