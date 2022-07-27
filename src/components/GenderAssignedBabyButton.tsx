@@ -3,11 +3,15 @@ import BabyName from "../types/BabyNames";
 import BabyButton from "./BabyButton";
 
 interface Prop {
-  className?: string
+  className?: string;
   baby: BabyName;
   handleClick: React.Dispatch<void>;
 }
-const GenderAssignedBabyButton = ({ className, baby, handleClick }: Prop): JSX.Element => {
+const GenderAssignedBabyButton = ({
+  className,
+  baby,
+  handleClick,
+}: Prop): JSX.Element => {
   return (
     <>
       <BabyButton
