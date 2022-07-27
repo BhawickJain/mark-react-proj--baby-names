@@ -25,7 +25,7 @@ const BabyDataDisplay = ({ state, setState }: Props): JSX.Element => {
         {state.display.map((b) => (
           <li key={b.id}>
             <GenderAssignedBabyButton
-            className={`${isPicked(b, state.picks) ? "selected" : ""}`}
+              className={`${isPicked(b, state.picks) ? "selected" : ""}`}
               baby={b}
               handleClick={() => handleAddToPick(b.id)}
             />

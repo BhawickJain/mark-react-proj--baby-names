@@ -16,17 +16,16 @@ const initialPickState: BabyName[] = [
     id: 2,
     name: "lui",
     sex: "f",
-  }
+  },
 ];
 
 test("isPicked returns true when baby is present in pickedBabies", () => {
-
   const baby: BabyName = {
     id: 2,
     name: "lui",
     sex: "f",
   };
-  const expectedResult: boolean = true
+  const expectedResult: boolean = true;
 
   expect(isPicked(baby, initialPickState)).toEqual(expectedResult);
 });
