@@ -1,5 +1,5 @@
 import BabyName from "../types/BabyNames";
-import Sex from "../types/sex";
+import Sex from "../types/Sex";
 
 const searchBabyName = (
   substring: string,
