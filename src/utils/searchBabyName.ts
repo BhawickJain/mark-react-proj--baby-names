@@ -1,9 +1,10 @@
 import BabyName from "../types/BabyNames";
+import Sex from "../types/sex";
 
 const searchBabyName = (
   substring: string,
   data: BabyName[],
-  sex: "m" | "f" | ""
+  sex: Sex
 ): BabyName[] => {
   const filteredBabyNames: BabyName[] = data.filter((b) =>
     b.name.includes(substring)

@@ -1,7 +1,4 @@
-import { useEffect } from "react";
-import BabyName from "../types/BabyNames";
 import BabyNamesState from "../types/BabyNamesState";
-import searchBabyName from "../utils/searchBabyName";
 import BabyButton from "./BabyButton";
 
 interface Props {
@@ -10,22 +7,6 @@ interface Props {
 }
 
 const SearchFilterBar = ({ state, setState }: Props): JSX.Element => {
-  useEffect(() => {
-    const computeSearchResults = (prev: BabyNamesState) => {
-      const displaySearchResult: BabyName[] = searchBabyName(
-        prev.filter,
-        prev.data,
-        prev.sexFilter
-      );
-      console.log("useEffect used to update search results");
-      const newState = { ...prev, display: [...displaySearchResult] };
-
-      return newState;
-    };
-
-    setState(computeSearchResults);
-  }, [state.data, state.sexFilter, state.filter, setState]);
-
   const handleChange = (search: string): void => {
     setState({
       ...state,

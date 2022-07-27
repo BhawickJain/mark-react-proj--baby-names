@@ -6,6 +6,22 @@
   font-size: large;
 }
 
+/* https://css-tricks.com/box-sizing/ */
+/* sane defaults across browsers */
+/* html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+} */
+
 .search-filter-bar,
 .picked-names-display ul {
   display: inline-flex;
@@ -31,6 +47,7 @@ input {
   border: none;
   border-radius: 10px;
   font-weight: bold;
+  border: solid transparent 2px;
 }
 
 .selected {
