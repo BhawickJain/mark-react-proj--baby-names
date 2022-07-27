@@ -1,5 +1,5 @@
 import React from "react";
-import Sex from "../types/sex";
+import Sex from "../types/Sex";
 
 interface Prop {
   className?: string;

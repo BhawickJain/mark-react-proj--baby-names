@@ -1,4 +1,4 @@
-import Sex from "./sex";
+import Sex from "./Sex";
 
 export interface BabyName {
   id: number;

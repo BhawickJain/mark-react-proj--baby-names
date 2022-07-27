@@ -1,5 +1,5 @@
 import BabyName from "./BabyNames";
-import Sex from "./sex";
+import Sex from "./Sex";
 
 interface BabyNamesState {
   data: BabyName[];
