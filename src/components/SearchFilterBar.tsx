@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import BabyName from "../types/BabyNames";
 import BabyNamesState from "../types/BabyNamesState";
 import searchBabyName from "../utils/searchBabyName";
 import BabyButton from "./BabyButton";
