@@ -1,10 +1,11 @@
 import BabyName from "./BabyNames";
+import Sex from "./sex";
 
 interface BabyNamesState {
   data: BabyName[];
   picks: BabyName[];
   filter: string;
-  sexFilter: "m" | "f" | "";
+  sexFilter: Sex;
   display: BabyName[];
 }
 

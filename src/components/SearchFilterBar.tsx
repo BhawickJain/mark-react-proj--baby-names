@@ -1,4 +1,5 @@
 import BabyNamesState from "../types/BabyNamesState";
+import Sex from "../types/sex";
 import searchBabyName from "../utils/searchBabyName";
 import BabyButton from "./BabyButton";
 
@@ -19,7 +20,7 @@ const SearchFilterBar = ({ state, setState }: Props): JSX.Element => {
     });
   };
 
-  const handleSetSex = (sex: "m" | "f" | ""): void => {
+  const handleSetSex = (sex: Sex): void => {
     setState({
       ...state,
       display: recomputeDisplaySearchResults({ ...state, sexFilter: sex }),
