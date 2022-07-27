@@ -13,8 +13,7 @@ const Main = (): JSX.Element => {
       data: sortAlphabetically(babyData),
       picks: [],
       filter: "",
-      sexFilter: "",
-      display: babyData,
+      sexFilter: ""
     };
   };
 

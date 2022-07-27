@@ -6,7 +6,6 @@ interface BabyNamesState {
   picks: BabyName[];
   filter: string;
   sexFilter: Sex;
-  display: BabyName[];
 }
 
 export default BabyNamesState;
