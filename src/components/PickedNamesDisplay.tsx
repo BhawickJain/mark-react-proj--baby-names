@@ -1,5 +1,5 @@
 import BabyNamesState from "../types/BabyNamesState";
-import GenderAssignedBabyButton from "./GenderAssignedBabyButton";
+import BabyButton from "./BabyButton";
 
 interface Props {
   state: BabyNamesState;
@@ -21,9 +21,10 @@ const PickedNamesDisplay = ({ state, setState }: Props): JSX.Element => {
         {state.picks.map((b) => (
           <li key={b.id}>
             {" "}
-            <GenderAssignedBabyButton
-              baby={b}
-              handleClick={() => handleRemoveFromPick(b.id)}
+            <BabyButton
+              label={b.name}
+              sex={b.sex}
+              onClick={() => handleRemoveFromPick(b.id)}
             />
           </li>
         ))}
