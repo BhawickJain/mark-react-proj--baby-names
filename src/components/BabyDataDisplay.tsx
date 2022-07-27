@@ -1,6 +1,7 @@
 import BabyName from "../types/BabyNames";
 import BabyNamesState from "../types/BabyNamesState";
 import addToPick from "../utils/addToPick";
+import isPicked from "../utils/isPicked";
 import GenderAssignedBabyButton from "./GenderAssignedBabyButton";
 
 interface Props {
@@ -24,6 +25,7 @@ const BabyDataDisplay = ({ state, setState }: Props): JSX.Element => {
         {state.display.map((b) => (
           <li key={b.id}>
             <GenderAssignedBabyButton
+              className={`${isPicked(b, state.picks) ? "selected" : ""}`}
               baby={b}
               handleClick={() => handleAddToPick(b.id)}
             />

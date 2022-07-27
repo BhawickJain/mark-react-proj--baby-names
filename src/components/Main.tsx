@@ -6,19 +6,21 @@ import BabyDataDisplay from "./BabyDataDisplay";
 import PickedNameDisplay from "./PickedNamesDisplay";
 import SearchFilterBar from "./SearchFilterBar";
 
-const initialiseBabyNamesState = (): BabyNamesState => {
-  const babyData = loadData();
-  return {
-    data: sortAlphabetically(babyData),
-    picks: [],
-    filter: "",
-    sexFilter: "",
-    display: babyData,
-  };
-};
-
 const Main = (): JSX.Element => {
-  const [state, setState] = useState(initialiseBabyNamesState());
+  const initialiseBabyNamesState = (): BabyNamesState => {
+    const babyData = loadData();
+    return {
+      data: sortAlphabetically(babyData),
+      picks: [],
+      filter: "",
+      sexFilter: "",
+      display: babyData,
+    };
+  };
+
+  const [state, setState] = useState<BabyNamesState>(
+    initialiseBabyNamesState()
+  );
 
   return (
     <>

@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import BabyName from "../types/BabyNames";
 import BabyNamesState from "../types/BabyNamesState";
 import searchBabyName from "../utils/searchBabyName";
+import BabyButton from "./BabyButton";
 
 interface Props {
   state: BabyNamesState;
@@ -8,29 +10,33 @@ interface Props {
 }
 
 const SearchFilterBar = ({ state, setState }: Props): JSX.Element => {
+  useEffect(() => {
+    const computeSearchResults = (prev: BabyNamesState) => {
+      const displaySearchResult: BabyName[] = searchBabyName(
+        prev.filter,
+        prev.data,
+        prev.sexFilter
+      );
+      console.log("useEffect used to update search results");
+      const newState = { ...prev, display: [...displaySearchResult] };
+
+      return newState;
+    };
+
+    setState(computeSearchResults);
+  }, [state.data, state.sexFilter, state.filter, setState]);
+
   const handleChange = (search: string): void => {
-    const displaySearchResult: BabyName[] = searchBabyName(
-      search,
-      state.data,
-      state.sexFilter
-    );
     setState({
       ...state,
       filter: search,
-      display: [...displaySearchResult],
     });
   };
 
   const handleSetSex = (sex: "m" | "f" | ""): void => {
-    const displaySearchResult: BabyName[] = searchBabyName(
-      state.filter,
-      state.data,
-      sex
-    );
     setState({
       ...state,
       sexFilter: sex,
-      display: displaySearchResult,
     });
   };
 
@@ -40,15 +46,24 @@ const SearchFilterBar = ({ state, setState }: Props): JSX.Element => {
         value={state.filter}
         onChange={(e) => handleChange(e.target.value)}
       />
-      <button className="baby-button" onClick={() => handleSetSex("")}>
-        any
-      </button>
-      <button className="baby-button girl" onClick={() => handleSetSex("f")}>
-        girl
-      </button>
-      <button className="baby-button boy" onClick={() => handleSetSex("m")}>
-        boy
-      </button>
+      <BabyButton
+        className={`${state.sexFilter === "" ? "selected" : ""}`}
+        label="Any"
+        keyValue={"any"}
+        onClick={() => handleSetSex("")}
+      />
+      <BabyButton
+        className={`girl ${state.sexFilter === "f" ? "selected" : ""}`}
+        label="Girl"
+        keyValue={"girl"}
+        onClick={() => handleSetSex("f")}
+      />
+      <BabyButton
+        className={`boy ${state.sexFilter === "m" ? "selected" : ""}`}
+        label="Boy"
+        keyValue={"boy"}
+        onClick={() => handleSetSex("m")}
+      />
     </div>
   );
 };
